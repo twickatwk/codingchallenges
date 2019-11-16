@@ -4,6 +4,7 @@ def power(x, n):
         return 1
     return x * power(x, n-1)
 
+# Time: O(Log N) | Space: O(1)
 def power2(x, n):
     if n == 0:
         return 1
