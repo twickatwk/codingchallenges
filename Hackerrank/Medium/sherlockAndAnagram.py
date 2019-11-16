@@ -1,6 +1,6 @@
 # https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem
 
-# Time: O(N) | Space: O(N) | Dictionary
+# Time: O(N^4) | Space: O(N) | Dictionary
 def sherlockAndAnagrams(s):
     size = 0
     countOfanagram = 0
