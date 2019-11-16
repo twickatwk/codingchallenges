@@ -1,7 +1,7 @@
 # https://www.hackerrank.com/challenges/anagram/problem
 
+# Time: O(N) | Space: O(N) | Dictionary
 def anagram(s):
-    # Time: O(N) | Space: O(N) | Dictionary
     if len(s) % 2 == 1:
         return -1
     s1 = s[0:len(s)//2]
