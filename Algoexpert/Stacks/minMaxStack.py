@@ -9,8 +9,7 @@ independently, should run in constant time and with constant space.
 
 class MinMaxStack:
 	def __init__(self):
-		self.minValue = []
-		self.maxValue = []
+		self.minMaxStack = []
 		self.stack = []
 	
     def peek(self):
@@ -21,34 +20,25 @@ class MinMaxStack:
 
     def pop(self):
         # Write your code here.
-		self.maxValue.pop()
-		self.minValue.pop()
+		self.minMaxStack.pop()
 		return self.stack.pop()
         pass
 
     def push(self, number):
         # Write your code here.
-		if len(self.minValue) == 0:
-			self.minValue.append(number)
-		else:
-			if number < self.minValue[-1]:
-				self.minValue.append(number)
-			else:
-				self.minValue.append(self.minValue[-1])
-		if len(self.maxValue) == 0:
-			self.maxValue.append(number)
-		else:
-			if number > self.maxValue[-1]:
-				self.maxValue.append(number)
-			else:
-				self.maxValue.append(self.maxValue[-1])
-			
+		newMinMax = {"min":number, "max":number}
+		if self.minMaxStack:
+			oldMinMax = self.minMaxStack[-1]
+			newMinMax["min"] = min(oldMinMax["min"], number)
+			newMinMax["max"] = max(oldMinMax["max"], number)
+		
+		self.minMaxStack.append(newMinMax)
 		self.stack.append(number)
 
     def getMin(self):
         # Write your code here.
-		return self.minValue[-1]
+		return self.minMaxStack[-1]["min"]
 
     def getMax(self):
         # Write your code here.
-		return self.maxValue[-1]
+		return self.minMaxStack[-1]["max"]
