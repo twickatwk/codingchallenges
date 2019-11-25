@@ -8,7 +8,7 @@ equals 1 (where it will stay), or it loops endlessly in a cycle which does not i
 Those numbers for which this process ends in 1 are happy numbers.
 """
 
-# Time: O(dxn) | Space: O(n) - Might need to revise as a Floyd Cycle Detection algorithm 
+# Time: O(dn) | Space: O(n) - Might need to revise as a Floyd Cycle Detection algorithm 
 def isHappy(self, n):
         """
         :type n: int
