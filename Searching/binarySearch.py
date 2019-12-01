@@ -1,6 +1,7 @@
 
 # This is an implementation of binary search using the iterative approach:
 
+# Time: O(log n) | Space: O(1)
 def binarySearch(array, target):
     lower = 0 
     upper = len(array) - 1
