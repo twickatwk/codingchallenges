@@ -18,22 +18,34 @@ def has_palindrome_permutation(the_string):
         else:
             dict_letter_count[the_string[i]] = 1
 
-    isOdd = (len(the_string) % 2 == 1)
     isOddCount = 0
 
     for value in dict_letter_count.values():
         if value % 2 == 1:
             isOddCount += 1
-            if isOdd and isOddCount > 1:
-                return False
-            elif isOdd and isOdd <= 1:
-                continue
-            else:
-                return False
         else:
             continue
 
-    return True
+    if isOddCount <= 1:
+        return True
+
+    return False
+
+# Approach 2: using set to solve the question
+# Time: O(n) | Space: O(n)
+def has_palindrome_permutation2(the_string):
+    # Track characters we've seen an odd number of times
+    unpaired_characters = set()
+
+    for char in the_string:
+        if char in unpaired_characters:
+            unpaired_characters.remove(char)
+        else:
+            unpaired_characters.add(char)
+    
+    # The string has a palindrome if it has one or zero
+    # characters without a pair
+    return len(unpaired_characters) <= 1
 
 
 # Tests
