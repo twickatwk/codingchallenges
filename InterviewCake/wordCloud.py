@@ -13,6 +13,7 @@ class WordCloudData(object):
         for word in array_of_words:
             self.add_word(word)
 
+    # Time: O(n) | Space: O(n)
     def split_words(self, input_string):
         words = []
         current_word_start_index = 0
