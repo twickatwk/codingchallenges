@@ -14,11 +14,11 @@ def miniMaxSum(arr):
         min_sum += arr[i]
         max_sum += arr[i]
 
-    if arr[-1] > max_num:
+    if arr[-1] > min_num:
         max_sum -= min_num
         max_sum += arr[-1]
-    if arr[-1] < min_num:
-        min_sum -= min_num
+    if arr[-1] < max_num:
+        min_sum -= max_num
         min_sum += arr[-1]
 
     print(str(min_sum) + " " + str(max_sum))
