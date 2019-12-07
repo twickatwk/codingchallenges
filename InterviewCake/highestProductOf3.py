@@ -3,6 +3,7 @@
 # product you can get from three of the integers.
 # There is at least 3 integers
 
+# Greedy Approach
 # Time: O(n) | Space: O(1)
 def highest_product_of_3(list_of_ints):
 
