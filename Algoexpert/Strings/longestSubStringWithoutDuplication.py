@@ -15,9 +15,6 @@ def longestSubstringWithoutDuplication(string):
     return string[longest_substring[0]:longest_substring[1]]
 
 
-
-
-
 """
 # Aaron's Approach: Time: O(N) | Space: O(N) - either the length of lastSeen or max_string
 def longestSubstringWithoutDuplication(string):
