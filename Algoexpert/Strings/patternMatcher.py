@@ -1,7 +1,7 @@
 
 # https://www.algoexpert.io/questions/Pattern%20Matcher
 
-# Time: O(N^(2+M)) | Space: O(N + M) - N is the length of the main string, M is the length of the substring
+# Time: O(N^2 + M) | Space: O(N + M) - N is the length of the main string, M is the length of the substring
 def patternMatcher(pattern, string):
     # Write your code here.
 
