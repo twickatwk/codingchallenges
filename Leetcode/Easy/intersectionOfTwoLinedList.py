@@ -2,6 +2,7 @@
 
 # https://leetcode.com/problems/intersection-of-two-linked-lists/
 
+# Time: O(M+N) | Space: O(1)
 def getIntersectionNode(self, headA, headB):
         """
         :type head1, head1: ListNode
