@@ -24,7 +24,20 @@ def insertionSort(array):
                 break
     
     return array
-    
-    
 
-print(insertionSort([8, 5, 2, 9, 5]))
+# Another approach to solve the insertion sort using while loop
+# Time: O(N^2) | Space: O(1)
+def insertionSort2(array):
+    for i in range(1, len(array)):
+        j = i
+        
+        while j > 0 and array[j] < array[j-1]:
+            swap(j, j-1, array)
+            j -= 1
+    
+    return array
+
+def swap(i, j, array):
+    array[i], array[j] = array[j], array[i]
+
+print(insertionSort2([8, 5, 2, 9, 5]))
