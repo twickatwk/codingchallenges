@@ -13,7 +13,7 @@ def isUnique(string):
     
     return unique
 
-# Time: O(N + Log N) | Space: O(1)
+# Time: O(N Log N) | Space: O(1)
 def isUnique2(string):
 
     arr = list(string)
