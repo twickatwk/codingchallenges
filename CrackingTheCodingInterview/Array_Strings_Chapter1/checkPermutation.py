@@ -4,7 +4,8 @@
 # Time: O(N Log N) - sorting | Space: O(N)
 def checkPermutation(a, b):
 
-    # Assumes that both strings are of the same length
+    if len(a) != len(b):
+        return False
 
     arrA = list(a).sort()
     arrB = list(b).sort()
@@ -13,6 +14,9 @@ def checkPermutation(a, b):
 
 # Time: O(N) | Space: O(N)
 def checkPermutation2(a, b):
+
+    if len(a) != len(b):
+        return False
 
     dict_chars = {}
 
@@ -33,4 +37,4 @@ def checkPermutation2(a, b):
     return True
     
 
-print(checkPermutation2('abca', 'cbab'))
+print(checkPermutation2('abca', 'cbaba'))
