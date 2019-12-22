@@ -1,7 +1,7 @@
 
 # Medium
 
-# Time: O(N) | Space: O(N)
+# Recursive Approach - Time: O(N) | Space: O(N)
 def invertBinaryTree(tree):
     # Write your code here.
 	
@@ -21,3 +21,19 @@ def invertBinaryTree(tree):
         invertBinaryTree(tree.right)
 
     return
+
+# Iterative Approach - Time: O(N) | Space: O(N):
+def invertBinaryTree2(tree):
+    queue = [tree]
+    # BFS - uses a queue - FIFO
+    while len(queue):
+        currentNode = queue.pop(0)
+        if currentNode is None:
+            continue
+        swapNodes(currentNode)
+        queue.append(currentNode.left)
+        queue.append(currentNode.right)
+
+# This helper method swaps the left and right child nodes
+def swapNodes(tree):
+	tree.left, tree.right = tree.right, tree.left
