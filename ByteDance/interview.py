@@ -22,7 +22,7 @@ def searchNegativePositive(arr):
     print(result)
     """
 
-    # Approach 2 -  Single linear search solution, assuming 0 is considered positive
+    """ Approach 2 -  Single linear search solution, assuming 0 is considered positive
     positiveExists = False
     for i in range(len(arr)):
         if arr[i] >= 0:
@@ -37,8 +37,25 @@ def searchNegativePositive(arr):
             if not positiveExists:
                 result.append(i)
                 result.append(-1)
-        
-    print(result)
+    """
+    
+    # Approach 3 - Using two pointers, works with the exclusion of 0
+    negative_index = 0
+    positive_index = 0
+    neg_pos = -1
+    pos_pos = -1
+    while negative_index < len(arr) and positive_index < len(arr):
+        if arr[negative_index] < 0:
+            neg_pos = negative_index
+            negative_index += 1
+        if arr[positive_index] <= 0:
+            positive_index += 1
+        else:
+            pos_pos = positive_index
+            break
+    
+    print([neg_pos, pos_pos])
+    
 
 searchNegativePositive([-10, -4, -1, 1, 5, 9])
 # Expected Output: [2, 3]
@@ -46,3 +63,4 @@ searchNegativePositive([1, 4, 5])
 # Expected Output: [-1, 0]
 searchNegativePositive([-10, -4, -1])
 # Expected Output: [2, -1]
+
