@@ -16,6 +16,7 @@ class Node:
         self.next = node
 
 # Implement deleteNode function, data on the node is assumed to be unique
+# Time: O(N) | Space: O(1)
 def deleteNode(head, data):
     # If the node is empty, return
     if head is None:
