@@ -3,6 +3,19 @@
 
 # Easy
 
+""" Cleaner Solution """
+# Time: O(N) - N represents the number of elements | Space: O(D) - depth of the recursion depending on the size of the sub list 
+def productSum2(array, multiplier=1):
+    total = 0
+
+    for element in array:
+        if type(element) is int:
+            total += element
+        else:
+            total += productSum2(element, multiplier+1)
+    
+    return multiplier * total
+
 def productSum(array):
     # Write your code here
 	
@@ -29,3 +42,10 @@ def calculateSumWithinList(items, multiplier, total):
 		
 	# After calcuating the total, you have to return the total multplied by its depth
 	return multiplier * total
+
+
+print(productSum2([5,2,[7,-1],3,[6,[-13, 8], 4]]))
+
+print(productSum([5,2,[7,-1],3,[6,[-13, 8], 4]]))
+
+# Expected: 12
