@@ -36,12 +36,6 @@ def findRotationPoint(array):
         
     return lower
 
-# 9 // 2 = 4 -> xenoepist
-# go to the right
-# lower = mid + 1 = 5
-# upper = 8
-# new mid = 5 + 8 // 2 = 6 -> babka
-
 words = [
     'xenoepist',
     'asymptote',  # <-- rotates here!
