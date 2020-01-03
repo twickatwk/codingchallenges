@@ -1,5 +1,5 @@
 
-# Time: O(N) | Space: O(D / Log N) - depends on the depth of the recursion but it is still lesser than the approach below
+# Time: O(N) | Space: O(D) - depends on the depth of the recursion but it is still lesser than the approach below
 def isSameTree2(p, q):
         """
         :type p: TreeNode
