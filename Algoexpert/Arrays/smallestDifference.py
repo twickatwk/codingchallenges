@@ -33,10 +33,12 @@ def smallestDifference2(arrayOne, arrayTwo):
 		num1 = arrayOne[aIdx]
 		num2 = arrayTwo[bIdx]
 		difference = abs(num1 - num2)
+        if difference == 0:
+            return [num1, num2]
 		if difference < minDifference:
 			minDifference = difference
 			result = [num1, num2]
-		if num1 <= num2:
+		if num1 < num2:
 			aIdx += 1
 		else:
 			bIdx += 1
