@@ -16,7 +16,7 @@ def smallestDifference(arrayOne, arrayTwo):
 	return result
 
 # Approach 2: Uses sorted arrays
-# Time: O(N) | Space: O(1)
+# Time: O(N log N) | Space: O(1)
 def smallestDifference2(arrayOne, arrayTwo):
     # Write your code here.
 	
