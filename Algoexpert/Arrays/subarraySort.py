@@ -14,7 +14,9 @@ def subarraySort(A):
             maxValue = A[i]
         else:
             if minValue is None:
+                # This step finds the minimum bound of the unsorted range
                 minRange, minValue = searchMinValue(i, A)
+            # This tracks the upper bounds of the unsorted range, for values that are smaller than the current maximum, you will have to widen the boundary
             maxRange = i
     
     return[minRange, maxRange]
@@ -23,10 +25,12 @@ def searchMinValue(i, A):
     minRange = -1
     minValue = float("inf")
 
+    # This step identifies the minimum value from the first unsorted position
     for i in range(i, len(A)):
         if A[i] < minValue:
             minValue = A[i]
     
+    # This step uses the minimum value from the first unsorted position to determine the starting position of the unsorted range
     for i in range(0, i):
         if A[i] > minValue:
             return i, minValue
