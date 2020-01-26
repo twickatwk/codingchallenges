@@ -66,10 +66,6 @@ def deleteNode(head, data):
         # Return the head of the Node
         return start
     
-    
-    
-
-    
 
 ll = Node(1)
 ll.appendToTail(3)
