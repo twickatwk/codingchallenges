@@ -101,7 +101,7 @@ class LRUCache:
 		
         return self.cache[key].value
 
-    # Time: O(1) | Sapce: O(1)
+    # Time: O(1) | Space: O(1)
     def getMostRecentKey(self):
         # Write your code here.
         return self.listOfMostRecent.head.key
