@@ -1,7 +1,5 @@
 
-
-
-
+# Time: O(N) | Space: O(1)
 def peakIndexInMountainArrayIndexInMountainArray(A):
     """
     :type A: List[int]
