@@ -1,0 +1,41 @@
+
+class Tree:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+# Time:O(N) | Space: O(N)
+def inOrderTraverse(tree, array):
+    if tree is None:
+        return
+
+    inOrderTraverse(tree.left, array)
+    array.append(tree.value)
+    inOrderTraverse(tree.right, array)
+    
+    return array
+
+# Time: O(N) | Space: O(N)
+def preOrderTraverse(tree, array):
+    if tree is None:
+        return
+
+    array.append(tree.value)
+    preOrderTraverse(tree.left, array)
+    preOrderTraverse(tree.right, array)
+    
+    return array
+
+# Time: O(N) | Space: O(N)
+def postOrderTraverse(tree, array):
+    if tree is None:
+        return
+
+    postOrderTraverse(tree.left, array)
+    postOrderTraverse(tree.right, array)
+    array.append(tree.value)
+
+    return array
+
+
