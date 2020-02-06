@@ -4,6 +4,37 @@ class Node:
         self.data = data
         self.next = None
 
+# Approach 2 - this is a smarter solution
+# Time: O(N) | Space: O(D)
+def sumLists2(l1, l2, carry=0):
+
+    value = None
+
+    if l1 is not None and l2 is not None:
+        value = l1.data + l2.data + carry
+        if value >= 10:
+            carry = 1
+            value -= 10
+    
+    elif l2 is not None:
+        value = l2.data
+        carry = 0
+
+    elif l1 is not None:
+        value = l1.data
+        carry = 0
+    
+    result = Node(value)
+
+    if l1 is not None or l2 is not None:
+        more = sumLists2(None if l1 is None else l1.next, None if l2 is None else l2.next, carry)
+        print(more.data)
+        result.next = more
+    
+    return result
+
+
+# Approach 1 - Not really smart solution
 # Time: O(N) | Space: O(D)
 def sumLists(l1, l2):
 
@@ -34,12 +65,10 @@ def getNumber(ll):
     return str(getNumber(ll.next)) + str(ll.data)
 
 def printLinkedList(ll):
-    result = ""
-    while ll is not None:
-        result += ll.data
+    
+    while ll.next is not None:
+        print(ll.data)
         ll = ll.next
-
-    return result
 
 ll1 = Node(7)
 ll1.next = Node(1)
@@ -49,6 +78,6 @@ ll2 = Node(5)
 ll2.next = Node(9)
 ll2.next.next = Node(2)
 
-node = sumLists(ll1, ll2)
+node = sumLists2(ll1, ll2)
 # Expected Output: [2 -> 1 -> 9]
-print(printLinkedList(node))
+printLinkedList(node)
