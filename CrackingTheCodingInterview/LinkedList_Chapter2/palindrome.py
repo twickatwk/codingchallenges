@@ -84,6 +84,9 @@ def isEqual(one, two):
     
     return True
 
+# Iterative Approach: Using a stack to store the first half of the linked list, and then compare it with the second half of the linked list
+
+#TODO
 
 
 head = Node(0)
