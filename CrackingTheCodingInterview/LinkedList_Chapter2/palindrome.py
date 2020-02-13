@@ -52,6 +52,38 @@ def isPalindrome(node):
 
     return True
 
+# Approach: Reverse and Compare
+# Time: O(N) | Space: O(N)
+def isPalindrome2(head):
+    reverse = reverseAndClone(head)
+    return isEqual(head, reverse)
+
+# Time: O(N) | Space: O(N)
+def reverseAndClone(node):
+    head = None
+    while node is not None:
+        # clone the data
+        n = Node(node.data)
+        # sets the next node to be the head of the new linked list
+        n.next = head
+        # update the head back to the top of the new linked list
+        head = n
+        # iterate the next node of the current linked list
+        node = node.next
+    
+    return head
+
+# Time: O(N) | Space: O(1)
+def isEqual(one, two):
+    # check both linked list, going through them one by one
+    while one is not None and two is not None:
+        if one.data != two.data:
+            return False
+        one = one.next
+        two = two.next
+    
+    return True
+
 
 
 head = Node(0)
@@ -60,4 +92,4 @@ head.next.next = Node(2)
 head.next.next.next = Node(1)
 head.next.next.next.next = Node(0)
 
-print(isPalindrome(head))
+print(isPalindrome2(head))
