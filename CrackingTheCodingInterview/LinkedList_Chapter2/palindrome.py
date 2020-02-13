@@ -36,17 +36,28 @@ def isPalindrome(node):
     if isOdd:
         midpoint = midpoint.next
     
-    # keep checking till midpoint pointer goes to the end
+    # add the first and second half of the linked list into separate list
+    l1 = []
+    l2 = []
     while midpoint is not None:
-        # move the pointers at the same speed, but both pointers need to have the same data, otherwise, it is not a palindrome
-        if midpoint.data != idxA.data:
-            return False
+        l1.append(midpoint.data)
+        l2.append(idxA.data)
         midpoint = midpoint.next
+        idxA = idxA.next
+
+    # compare the l2 with the reverse of l1
+    l1.reverse()
+    if l1 != l2:
+        return False
 
     return True
 
-head = Node(1)
 
-head.next = Node(2)
+
+head = Node(0)
+head.next = Node(1)
+head.next.next = Node(2)
+head.next.next.next = Node(1)
+head.next.next.next.next = Node(0)
 
 print(isPalindrome(head))
