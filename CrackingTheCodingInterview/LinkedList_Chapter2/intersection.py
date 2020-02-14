@@ -44,6 +44,59 @@ def intersection(node1, node2):
 
     return False
 
+# Solution from book
+# Time: O(N) | Space: O(1)
+def intersection2(node1, node2):
+
+    if node1 is None or node2 is None:
+        return None
+    
+    # get the tail node in the linked list and their sizes
+    tail1, size1 = getTailAndSize(node1)
+    tail2, size2 = getTailAndSize(node2)
+
+    # linked list that intersects should have the same ending node
+    if tail1 != tail2:
+        return None
+    
+    shorter = node1
+    longer = node2
+
+    if size1 > size2:
+        shorter, longer = longer, shorter
+    
+    # advance the pointer for the longer linked list
+    longer = getKthNode(longer, abs(size1-size2))
+
+    # move both pointers until you have a collision
+    while node1 != node2 and (node1 is not None and node2 is not None):
+        node1 = node1.next
+        node2 = node2.next
+
+    # return either one of the linked list works for the intersection point
+    return node1
+
+# this method returns the tail of the linked list and its size
+# Time: O(N) | Space: O(1)
+def getTailAndSize(head):
+
+    size = 1
+
+    while head.next is not None:
+        size += 1
+        head = head.next
+    
+    return head, size
+
+# this method returns the head after shiftiung the difference in length of the two linked lists
+def getKthNode(head, difference):
+
+    for i in range(difference):
+        head = head.next
+    
+    return head
+
+
 head = Node(1)
 head.next = Node(2)
 head.next.next = Node(3)
@@ -54,6 +107,6 @@ secondHead.next = Node(2)
 secondHead.next.next = Node(3)
 secondHead.next.next.next = Node(4)
 
-thirdHead = head.next = Node(2)
+thirdHead = head.next.next
 
-print(intersection(head, thirdHead))
+print(intersection2(head, thirdHead))
