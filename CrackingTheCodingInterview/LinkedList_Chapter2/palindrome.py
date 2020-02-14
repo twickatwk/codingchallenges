@@ -85,8 +85,34 @@ def isEqual(one, two):
     return True
 
 # Iterative Approach: Using a stack to store the first half of the linked list, and then compare it with the second half of the linked list
+# Time: O(N) | Space: O(N)
+def isPalindrome3(head):
 
-#TODO
+    slow = head
+    fast = head
+
+    stack = []
+
+    # push elements from the first half of the linked list onto the stack. when the fast runner 
+    # reaches the end of the linked list, then we know we're at the middle point
+    while fast is not None and fast.next is not None:
+        stack.append(slow.data)
+        slow = slow.next
+        fast = fast.next.next
+    
+    # if it has odd number of elements
+    if fast is not None:
+        slow = slow.next # you shift one away from the middle point when you compare
+    
+    while slow is not None:
+        top = stack.pop()
+
+        if top != slow.data:
+            return False
+        
+        slow = slow.next
+    
+    return True
 
 
 head = Node(0)
@@ -95,4 +121,4 @@ head.next.next = Node(2)
 head.next.next.next = Node(1)
 head.next.next.next.next = Node(0)
 
-print(isPalindrome2(head))
+print(isPalindrome3(head))
