@@ -19,7 +19,7 @@ def groupThePeople(groupSizes):
         sizeOfGroup = groupSizes[i]
         if sizeOfGroup in groupings:
             groupings[sizeOfGroup].append(i)
-            # once the size of the array matches the key, this means tha the current group size have been maxed out, store them away
+            # once the size of the array matches the key, this means that the current group size have been maxed out, store them away
             if sizeOfGroup == len(groupings[sizeOfGroup]):
                 groupsWithPeople.append(groupings[sizeOfGroup])
                 groupings[sizeOfGroup] = []
