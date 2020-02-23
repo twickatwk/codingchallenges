@@ -12,8 +12,7 @@ def getMatch(string):
 
     print(match is not None)
 
-
 text = "123.456.abc.def"
 text2 = "1123.456.abc.def"
-getMatch(text2)
+getMatch(text)
 
